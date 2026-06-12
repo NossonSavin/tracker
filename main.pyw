@@ -951,8 +951,16 @@ class StockTickerApp:
 
         self.root.destroy()
 
-
 if __name__ == "__main__":
     root = tk.Tk()
     app = StockTickerApp(root)
+    
+    # Check if there is at least one stock saved in holdings
+    if app.holdings and len(app.holdings) >= 1:
+        # Hide the main dashboard window immediately on startup
+        root.withdraw()
+    else:
+        # No stocks saved, leave the app visible so the user can add one
+        root.deiconify()
+
     root.mainloop()
