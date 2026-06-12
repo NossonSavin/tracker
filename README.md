@@ -6,7 +6,7 @@ A simple Windows app to track stock holdings, display portfolio value, and run f
 - Search for a stock by ticker symbol
 - Enter number of shares you own
 - View price, value, and total portfolio worth
-- Updates automatically every 5 minutes
+- Updates automatically every 5 sec
 - Hides to system tray when the window is closed
 
 ## Setup
