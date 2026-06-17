@@ -40,7 +40,7 @@ class StockTickerApp:
             except tk.TclError:
                 pass
 
-        icon_path = Path(__file__).with_name("icon.png")
+        icon_path = Path(__file__).with_name("icon.ico")
         self.icon_path = icon_path
         self.badge_icon_image = None
         self.app_icon_image = None
@@ -48,7 +48,7 @@ class StockTickerApp:
             try:
                 icon_image = Image.open(icon_path)
                 self.app_icon_image = ImageTk.PhotoImage(icon_image)
-                self.badge_icon_image = ImageTk.PhotoImage(icon_image.resize((18, 18), Image.LANCZOS))
+                self.badge_icon_image = ImageTk.PhotoImage(icon_image.resize((35, 25), Image.LANCZOS))
                 self.root.iconphoto(False, self.app_icon_image)
             except Exception:
                 try:
@@ -375,7 +375,7 @@ class StockTickerApp:
             self.show_window()
 
     def show_badge_menu(self, event):
-        self.badge_menu.tk_popup(event.x_root, event.y_root)
+        self.badge_menu.tk_popup(self.value_badge.winfo_x() -35, self.value_badge.winfo_y())
 
     def dock_badge_to_taskbar(self):
         self.settings.pop("badge_position", None)
